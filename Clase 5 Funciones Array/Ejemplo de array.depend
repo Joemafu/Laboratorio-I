@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1567694615 source:d:\mahafud\ejemplo de array\main.c
+	"Array.h"
+
+1567693158 source:d:\mahafud\ejemplo de array\array.c
+	"Array.h"
+
+1567694615 d:\mahafud\ejemplo de array\array.h
+	<stdio.h>
+	<stdlib.h>
+
