@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1568299167 source:d:\mahafud\laboratorio-i\clase 7 arrays y matrices\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
