@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1567088975 source:d:\mahafud\funcionesenc\funcionesenc\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1567170802 source:c:\users\alumno\desktop\funcionesenc\funcionesenc\main.c
+	"calculadora.h"
+
+1567174040 c:\users\alumno\desktop\funcionesenc\funcionesenc\calculadora.h
+	<stdio.h>
+	<stdlib.h>
+
+1567175950 source:c:\users\alumno\desktop\funcionesenc\funcionesenc\calculadora.c
+	"calculadora.h"
+
+1567185991 source:c:\users\joelcck\downloads\workspace\funcionesenc\funcionesenc\calculadora.c
+	"calculadora.h"
+
+1567184924 c:\users\joelcck\downloads\workspace\funcionesenc\funcionesenc\calculadora.h
+	<stdio.h>
+	<stdlib.h>
+
+1567185463 source:c:\users\joelcck\downloads\workspace\funcionesenc\funcionesenc\main.c
+	"calculadora.h"
+

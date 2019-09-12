@@ -1,0 +1,9 @@
+Comandos de Git
+
+
+1) Tener un repositorio creado (debe tener archivo ReadMe).
+2) Para clonarlo uso git clone.
+3) Agregar los archivos nuevos o modificados con "git add ."
+4) Hacer commit "git commit -m "Mensaje del commit" (crea un punto de restauración para el repositorio).
+5) Subo todos los commit a GITHUB "git push origin master".
+6) Puedo actualizar mi repositorio local con la versión web usando "git pull".
