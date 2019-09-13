@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1568387474 source:d:\mahafud\estructuras de datos\main.c
+	"alumno.h"
+
+1568386744 source:d:\mahafud\estructuras de datos\alumno.c
+	"alumno.h"
+
+1568386704 d:\mahafud\estructuras de datos\alumno.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
