@@ -3,7 +3,7 @@
 void mostrarAlumno(eAlumno unAlumno)
 {
 
-    printf("%d\n%s\n%d\n", unAlumno.legajo, unAlumno.nombre, unAlumno.nota);
+    printf("%d\n%s\n%d\n\n", unAlumno.legajo, unAlumno.nombre, unAlumno.nota);
 
 }
 eAlumno pedirAlumno()
@@ -60,7 +60,7 @@ void ordenarAlumnosPorNombre(eAlumno lista[], int cant)
     {
         for(j=i+1; j<cant; j++)
         {
-            if(strcmp(lista[i].nombre,lista[j].nombre)<0)
+            if(strcmp(lista[i].nombre,lista[j].nombre)>0)
             {
                 aux=lista[i];
                 lista[i]=lista[j];
