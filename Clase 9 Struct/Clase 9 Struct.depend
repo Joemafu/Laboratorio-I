@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1568905360 source:d:\mahafud\laboratorio-i\clase 9 struct\main.c
+	"Library.h"
+
+1568905313 source:d:\mahafud\laboratorio-i\clase 9 struct\library.c
+	"Library.h"
+
+1568905313 d:\mahafud\laboratorio-i\clase 9 struct\library.h
+	<stdio.h>
+	<stdlib.h>
+
