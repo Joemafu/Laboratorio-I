@@ -118,7 +118,7 @@ void ordenarPorApellido(ePersona array[],int cant)
     {
         for(j=i+1;j<cant;j++)
         {
-            if (array[j].apellido[0]<array[i].apellido[0])///verificar condicional, así no se compara un string //Actualización, le agregué subíndices a .apellido[], pero esto solo los ordena por inicial.
+            if (array[j].apellido[0]<array[i].apellido[0])///verificar condicional, así no se compara un string //Actualización, le agregué subíndices a .apellido[], pero esto solo los ordena por inicial. SE USA STRCPM!
             {
                 aux = array[j];
                 array[j] = array[i];
