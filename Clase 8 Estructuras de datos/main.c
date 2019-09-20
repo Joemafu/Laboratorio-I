@@ -24,36 +24,68 @@ int main()
     */
     eAlumno listaDeAlumnos[A];
     int opcion;
+    int index;
+    int legajo;
 
-    do
+    if (inicializarAlumnos(listaDeAlumnos, A)!=-1)
     {
-        printf("1)Cargar alumnos.\n2)Mostrar alumnos.\n3)Ordenar por Nombre.\n4)Salir.\n");
-        scanf("%d", &opcion);
-        system("cls");
-
-        switch (opcion)
+        do
         {
-        case 1:
-            hardcodearAlumnos(listaDeAlumnos,A);//cargarAlumnos(listaDeAlumnos,A);
-            break;
-        case 2:
-            mostrarListaDeAlumnos(listaDeAlumnos,A);
-            system("pause");
+            printf("1)Cargar alumnos.\n2)Mostrar alumnos.\n3)Ordenar por Nombre.\n4)Mostrar alumno por legajo.\n5)Borrar alumno.\n6)Salir.\n");
+            scanf("%d", &opcion);
             system("cls");
-            break;
-        case 3:
-            ordenarAlumnosPorNombre(listaDeAlumnos,A);
-            break;
-        case 4:
-            break;
-        default:
-            printf("Opcion incorrecta.\n");
+
+            switch (opcion)
+            {
+            case 1:
+                hardcodearAlumnos(listaDeAlumnos,A);//cargarAlumnos(listaDeAlumnos,A);
+                break;
+            case 2:
+                mostrarListaDeAlumnos(listaDeAlumnos,A);
+                system("pause");
+                system("cls");
+                break;
+            case 3:
+                ordenarAlumnosPorNombre(listaDeAlumnos,A);
+                break;
+            case 4:
+                printf("Ingrese legajo del alumno a mostrar:\n");
+                scanf("%d", &legajo);
+                fflush(stdin);
+                system("cls");
+                index=buscarAlumnoPorLegajo(listaDeAlumnos,A,legajo);
+                mostrarAlumno(listaDeAlumnos[index]);
+                system("pause");
+                system("cls");
+                break;
+            case 5:
+                switch(borrarAlumno(listaDeAlumnos,A))
+                {
+                case 0:
+
+                    printf("Se borro al alumno.\n");
+
+                case 1:
+
+                    printf("Accion cancelada\n");
+
+                case -1:
+
+                    printf("No se encontro el legajo indicado.\n");
+                }
+                break;
+            case 6:                                                     ///AGREGAR MODIFICACIONES.
+                break;
+            default:
+                printf("Opcion incorrecta.\n");
+            }
         }
-
+        while (opcion!=6);
     }
-    while (opcion!=4);
-
-
+    else
+    {
+        printf("Error");
+    }
 
     return 0;
 }

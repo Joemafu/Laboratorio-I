@@ -1,11 +1,34 @@
 #include "alumno.h"
 
+int inicializarAlumnos (eAlumno* lista,int cantidad)
+{
+    int i;
+    int retorno=-1;
+
+    if(lista!=NULL&&cantidad>0)
+    {
+        for(i=0; i<cantidad; i++)
+        {
+            lista[i].estado = LIBRE;
+        }
+        retorno=1;
+    }
+
+    return retorno;
+}
+
+
+
 void mostrarAlumno(eAlumno unAlumno)
 {
 
     printf("%d\n%s\n%d\n\n", unAlumno.legajo, unAlumno.nombre, unAlumno.nota);
 
+    return;
 }
+
+
+
 eAlumno pedirAlumno()
 {
     eAlumno miAlumno;
@@ -20,6 +43,9 @@ eAlumno pedirAlumno()
 
     return miAlumno;
 }
+
+
+
 int compararAlumnosPorLegajo(eAlumno unAlumno, eAlumno otroAlumno)
 {
     int comp;
@@ -30,26 +56,51 @@ int compararAlumnosPorLegajo(eAlumno unAlumno, eAlumno otroAlumno)
     }
     return comp;
 }
+
+
+
 void cargarAlumnos (eAlumno lista[], int cant)
 {
     int i;
+    int flag=0;
     for (i=0; i<cant; i++)
     {
         /*printf("Ingrese un legajo: \n");
         scanf("%d", &listaDeAlumnos[i].legajo);*/
 
-        lista[i] = pedirAlumno();
+        if(lista[i].estado==LIBRE)
+        {
+            lista[i] = pedirAlumno();
+            lista[i].estado=OCUPADO;
+            flag=1;
+            break;
+        }
+        if (flag ==0)
+        {
+            printf("No hay espacio para cargar mas alumnos.\n");
+        }
+
+
     }
 }
+
+
+
 void mostrarListaDeAlumnos(eAlumno lista[], int cant)
 {
     int i;
 
     for(i=0; i<cant; i++)
     {
-        mostrarAlumno(lista[i]);
+        if(lista[i].estado==1)
+        {
+            mostrarAlumno(lista[i]);
+        }
     }
 }
+
+
+
 void ordenarAlumnosPorNombre(eAlumno lista[], int cant)
 {
     int i;
@@ -69,6 +120,9 @@ void ordenarAlumnosPorNombre(eAlumno lista[], int cant)
         }
     }
 }
+
+
+
 void hardcodearAlumnos (eAlumno lista[],int cant)
 {
     int i;
@@ -81,6 +135,75 @@ void hardcodearAlumnos (eAlumno lista[],int cant)
         lista[i].legajo=legajo[i];
         lista[i].nota=nota[i];
         strcpy(lista[i].nombre,nombre[i]);
+        lista[i].estado=OCUPADO;
     }
 }
 
+
+
+int buscarAlumnoLibre (eAlumno lista[],int cantidad)
+{
+    int i;
+    int index=-1;
+    for(i=0; i< cantidad; i++)
+    {
+        if (lista[i].estado==LIBRE)
+        {
+            index=i;
+            break;
+        }
+    }
+    return index;
+}
+
+int buscarAlumnoPorLegajo (eAlumno lista[],int cantidad,int legajo)
+{
+    int i;
+    int retorno=-1;
+    if(lista!=NULL&&cantidad>0)
+    {
+        for(i=0; i<cantidad; i++)
+        {
+            if (lista[i].legajo==legajo)
+            {
+                retorno=i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+
+
+
+int borrarAlumno (eAlumno lista[], int cantidad)
+{
+    int legajo;
+    int index;
+    int retorno=-1;
+    char confirmacion;
+
+    printf("Ingrese legajo del alumno a borrar:\n");
+    scanf("%d", &legajo);
+    fflush(stdin);
+    index=buscarAlumnoPorLegajo(lista,cantidad,legajo);
+    system("cls");
+
+    if(index!=-1)
+    {
+        mostrarAlumno(lista[index]);
+        printf("Esta seguro de que quiere eliminar el alumno? s/n.\n");
+        scanf("%c",&confirmacion);
+
+        if(confirmacion=='s')
+        {
+            lista[index].estado=0;
+            retorno=0;
+        }else
+        {
+            retorno=1;
+        }
+    }
+
+    return retorno;
+}
