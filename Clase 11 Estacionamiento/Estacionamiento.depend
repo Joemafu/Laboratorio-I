@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1569513078 source:d:\mahafud\laboratorio-i\estacionamiento\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1569514512 source:d:\mahafud\laboratorio-i\estacionamiento\estacionamiento.c
+	"Estacionamiento.h"
+
+1569514662 d:\mahafud\laboratorio-i\estacionamiento\estacionamiento.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1569519478 source:d:\mahafud\laboratorio-i\clase 11 estacionamiento\estacionamiento.c
+	"Estacionamiento.h"
+
+1569520169 d:\mahafud\laboratorio-i\clase 11 estacionamiento\estacionamiento.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1569518614 source:d:\mahafud\laboratorio-i\clase 11 estacionamiento\main.c
+	"Estacionamiento.h"
+
