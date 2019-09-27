@@ -6,7 +6,6 @@
 int main()
 {
     eAlumno listaAlumnos[A];
-    int i;
     int opcion;
     int index;
 

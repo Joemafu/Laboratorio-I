@@ -22,3 +22,15 @@
 1568985627 source:c:\users\alumno\desktop\estructuras 1b\alumno.c
 	"Alumno.h"
 
+1569000999 source:c:\users\joelcck\downloads\workspace\laboratorio-i\clase 10 (mismo que clase 8 pero la version del profe)\estructuras 1b 20-9\alumno.c
+	"Alumno.h"
+
+1569000999 c:\users\joelcck\downloads\workspace\laboratorio-i\clase 10 (mismo que clase 8 pero la version del profe)\estructuras 1b 20-9\alumno.h
+	<stdio.h>
+	<string.h>
+
+1569003870 source:c:\users\joelcck\downloads\workspace\laboratorio-i\clase 10 (mismo que clase 8 pero la version del profe)\estructuras 1b 20-9\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Alumno.h"
+

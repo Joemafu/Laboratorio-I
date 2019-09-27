@@ -20,7 +20,7 @@
 int main()
 {
     int opcion;
-    int id;
+    int auxId;
     ePersona persona[LENP];
     eVehiculo vehiculo[LENA];
 
@@ -36,25 +36,26 @@ int main()
         switch (opcion)
         {
         case 1:
-            mostrarPersonasYSusVehiculos(persona,vehiculo,LENP,LENA);
+            mostrarVehiculosYDuenios(persona,vehiculo,LENP,LENA);
             break;
         case 2:
-
+            system("cls");
+            mostrarPersonasYSusVehiculos(persona,vehiculo,LENP,LENA);
             break;
         case 3:
             system("cls");
             printf("Ingrese el ID del titular cuyos vehiculos quiere consultar:\n");
-            scanf("%d",&id);
-            mostrarVehiculoPorID(persona,vehiculo,LENP,LENA,id);
+            scanf("%d",&auxId);
+            mostrarVehiculoPorID(persona,vehiculo,LENP,LENA,auxId);
             break;
         case 4:
             mostrarTodasLasTarifas(vehiculo,LENA);
             break;
         case 5:
-
+            mostrarTarifaPorDuenio(persona,vehiculo,LENP,LENA);
             break;
         case 6:
-
+            mostrarPersonaConMasAutos(persona,vehiculo,LENP,LENA);
             break;
         case 7:
             break;
