@@ -1,6 +1,6 @@
 #include "Estacionamiento.h"
 
-void cargarPersonas (ePersona persona[],int len)
+void hardcodearPersonas (ePersona persona[],int len)
 {
     int i;
     int id[]={100,101,105,106};
@@ -20,24 +20,7 @@ void cargarPersonas (ePersona persona[],int len)
     return;
 }
 
-void mostrarPersona (ePersona persona[], int len)
-{
-    int i;
-    system("cls");
-    printf("Datos del titular:\n\nID\t\tNombre\t\tFecha de Nacimiento.\n\n");
-    for(i=0;i<len;i++)
-    {
-        printf("%04d\t",persona[i].id);
-        printf("%15s\t\t",persona[i].nombre);
-        printf("%02d\t",persona[i].fechaNac.dia);
-        printf("%02d\t",persona[i].fechaNac.mes);
-        printf("%4d\n\n",persona[i].fechaNac.anio);
-    }
-    system("pause");
-    return;
-}
-
-void cargarVehiculo (eVehiculo vehiculo[], int len)
+void hardcodearVehiculo (eVehiculo vehiculo[], int len)
 {
     int i;
     int id[]={101,106,100,106,101,101,100,105,106,106};
@@ -61,45 +44,82 @@ void cargarVehiculo (eVehiculo vehiculo[], int len)
     return;
 }
 
-void mostrarVehiculo (eVehiculo vehiculo[], int len)
+void mostrarPersonas (ePersona persona[], int len)
 {
     int i;
-    printf("Datos del vehiculo:\n\nID \tPatente\t\tDia\tMes\tAnio\tHora ing.\tHora egr.\n");
+    system("cls");
+    printf("Datos del titular:\n\nID\t\tNombre\t\tFecha de Nacimiento.\n\n");
     for(i=0;i<len;i++)
     {
-        printf("%04d\t",vehiculo[i].idDuenio);
-        printf("%8s\t",vehiculo[i].patente);
-        printf("%02d\t",vehiculo[i].fechaIngreso.dia);
-        printf("%02d\t",vehiculo[i].fechaIngreso.mes);
-        printf("%4d\t",vehiculo[i].fechaIngreso.anio);
-        printf("%02d\t\t",vehiculo[i].horaIngreso);
-        printf("%02d\t\n\n",vehiculo[i].horaSalida);
+        printf("%04d\t",persona[i].id);
+        printf("%15s\t\t",persona[i].nombre);
+        printf("%02d\t",persona[i].fechaNac.dia);
+        printf("%02d\t",persona[i].fechaNac.mes);
+        printf("%4d\n\n",persona[i].fechaNac.anio);
     }
     system("pause");
     return;
 }
 
-void mostrarVehiculoPorID(ePersona persona[], eVehiculo vehiculo[],int len)
+void mostrarPersonaPorID (ePersona persona[], int len,int id)
 {
     int i;
-    int id;
-
-    printf("Ingrese el ID del propietario del/los vehiculo/s a buscar:\n\n");
-    scanf("%d",&id);
-
+    system("cls");
+    printf("Datos del titular:\n\nID\t\tNombre\t\tFecha de Nacimiento.\n\n");
     for(i=0;i<len;i++)
     {
         if(id==persona[i].id)
         {
             printf("%04d\t",persona[i].id);
-            printf("%20s\t",persona[i].nombre);
+            printf("%15s\t\t",persona[i].nombre);
             printf("%02d\t",persona[i].fechaNac.dia);
             printf("%02d\t",persona[i].fechaNac.mes);
             printf("%4d\n\n",persona[i].fechaNac.anio);
             break;
         }
     }
-    for(i=0;i<len;i++)
+    system("pause");
+    return;
+}
+
+void mostrarPersonasYSusVehiculos (ePersona persona[], eVehiculo vehiculo[],int lenp,int lena)
+{
+    int i;
+    system("cls");
+
+    for(i=0;i<lenp;i++)
+    {
+        printf("\n----------------------------------------------------\n\nDatos del titular:\n\nID\t\tNombre\t\tFecha de Nacimiento.\n\n");
+        mostrarPersonaPorID(persona,lenp,persona[i].id);
+        mostrarVehiculoPorID(persona,vehiculo,lenp,lena,persona[i].id);
+    }
+    system("pause");
+    return;
+}
+
+void mostrarVehiculoPorIndice (eVehiculo vehiculo[], int lena, int i)
+{
+    printf("Datos del vehiculo:\n\nID \tPatente\t\tDia\tMes\tAnio\tHora ing.\tHora egr.\n");
+
+    printf("%04d\t",vehiculo[i].idDuenio);
+    printf("%8s\t",vehiculo[i].patente);
+    printf("%02d\t",vehiculo[i].fechaIngreso.dia);
+    printf("%02d\t",vehiculo[i].fechaIngreso.mes);
+    printf("%4d\t",vehiculo[i].fechaIngreso.anio);
+    printf("%02d\t\t",vehiculo[i].horaIngreso);
+    printf("%02d\t\n\n",vehiculo[i].horaSalida);
+
+    return;
+}
+
+void mostrarVehiculoPorID(ePersona persona[], eVehiculo vehiculo[],int lenp,int lena,int id)
+{
+    int i;
+
+    mostrarPersonaPorID(persona,lenp,id);
+    printf("\nDatos del vehiculo:\n\nID \tPatente\t\tDia\tMes\tAnio\tHora ing.\tHora egr.\n");
+
+    for(i=0;i<lena;i++)
     {
         if(id==vehiculo[i].idDuenio)
         {
@@ -108,11 +128,10 @@ void mostrarVehiculoPorID(ePersona persona[], eVehiculo vehiculo[],int len)
             printf("%02d\t",vehiculo[i].fechaIngreso.dia);
             printf("%02d\t",vehiculo[i].fechaIngreso.mes);
             printf("%4d\t",vehiculo[i].fechaIngreso.anio);
-            printf("%02d\t",vehiculo[i].horaIngreso);
+            printf("%02d\t\t",vehiculo[i].horaIngreso);
             printf("%02d\t\n\n",vehiculo[i].horaSalida);
         }
     }
-
     system("pause");
     return;
 }
@@ -161,6 +180,33 @@ void mostrarVehiculoPorPatente(ePersona persona[], eVehiculo vehiculo[],int len)
             printf("%4d\n\n",persona[i].fechaNac.anio);
             break;
         }
+    }
+    system("pause");
+    return;
+}
+
+//int buscarVehiculoPor
+
+int calcularTarifaAuto(eVehiculo vehiculo[],int lena,int index)
+{
+    int tarifa;
+
+    tarifa=(vehiculo[index].horaSalida-vehiculo[index].horaIngreso)*100;
+
+    return tarifa;
+}
+
+void mostrarTodasLasTarifas (eVehiculo vehiculo[], int lena)
+{
+    int i;
+    int total;
+
+    system("cls");
+    for(i=0;i<lena;i++)
+    {
+        mostrarVehiculoPorIndice(vehiculo, lena, i);
+        total=calcularTarifaAuto(vehiculo,lena,i);
+        printf("Debe pagar $%d\n\n-----------------------------------------------------------------------------\n",total);
     }
     system("pause");
     return;

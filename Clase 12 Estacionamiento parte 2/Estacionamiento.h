@@ -27,19 +27,27 @@ typedef struct
     int idDuenio;
 }eVehiculo;
 
-void cargarPersonas (ePersona*,int);
+void hardcodearPersonas(ePersona*,int);
 
-void mostrarPersona (ePersona*,int);
+void hardcodearVehiculo(eVehiculo*,int);
 
-void cargarVehiculo (eVehiculo*,int);
+void mostrarPersonas (ePersona*,int);
 
-void mostrarVehiculo(eVehiculo*,int);
+void mostrarVehiculoPorIndice(eVehiculo*,int,int);
 
-void mostrarVehiculoPorID(ePersona*,eVehiculo*,int);
+void mostrarVehiculoPorID(ePersona*,eVehiculo*,int,int,int);
 
 int buscarIndicePersona(ePersona*,int,int);
 
 void mostrarVehiculoPorPatente(ePersona*, eVehiculo*,int);
+
+void mostrarPersonasYSusVehiculos (ePersona*, eVehiculo*, int, int);
+
+void mostrarPersonaPorID (ePersona*,int,int);
+
+int calcularTarifaAuto(eVehiculo*,int,int);
+
+void mostrarTodasLasTarifas (eVehiculo*, int);
 
 ///ordenarPorPatente
 ///ordenarPorNombreDuenio

@@ -3,39 +3,36 @@
 int main()
 {
     int opcion;
-    ePersona persona[LEN];
-    eVehiculo vehiculo[LEN];
+    ePersona persona[LENP];
+    eVehiculo vehiculo[LENA];
+
+    cargarPersonas(persona,LENP);
+    cargarVehiculo(vehiculo,LENA);
 
     do
     {
         system("cls");
-        printf("Ingrese la opcion deseada:\n\n1)Cargar personas.\n2)Mostrar Personas.\n3)Cargar vehiculos.\n4)Mostrar vehiculos.\n5)Mostrar vehiculo por ID.\n6)Mostrar vehiculo por patente.\n7)Salir.\n\n");
+        printf("Ingrese la opcion deseada:\n\n1)Mostrar Personas.\n2)Mostrar vehiculos.\n3)Mostrar vehiculo por ID.\n4)Mostrar vehiculo por patente.\n5)Salir.\n\n");
         scanf("%d",&opcion);
 
         switch (opcion)
         {
         case 1:
-            cargarPersonas(persona,LEN);
+            mostrarPersona(persona,LENP);
             break;
         case 2:
-            mostrarPersona(persona,LEN);
+            mostrarVehiculo(vehiculo,LENA);
             break;
         case 3:
-            cargarVehiculo(vehiculo,LEN);
+            mostrarVehiculoPorID(persona,vehiculo,LENA);
             break;
         case 4:
-            mostrarVehiculo(vehiculo,LEN);
+            mostrarVehiculoPorPatente(persona,vehiculo,LENA);
             break;
         case 5:
-            mostrarVehiculoPorID(persona,vehiculo,LEN);
-            break;
-        case 6:
-            mostrarVehiculoPorPatente(persona,vehiculo,LEN);
-            break;
-        case 7:
             break;
         }
-    }while (opcion!=6);
+    }while (opcion!=5);
 
     return 0;
 }
