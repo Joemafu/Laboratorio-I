@@ -1,9 +1,5 @@
 #include "Estacionamiento.h"
 
-///Está todo roto, arreglar.
-
-///Nuevas consignas en esta carpeta.
-
 /*********************************************************************************
 *    Realizar las siguientes consultas:
 *

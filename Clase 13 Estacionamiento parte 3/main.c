@@ -1,61 +1,101 @@
 #include "Estacionamiento.h"
 
-///Está todo roto, arreglar.
-
-///Nuevas consignas en esta carpeta.
-
-/*********************************************************************************
-*    Realizar las siguientes consultas:
-*
-*    1.Cada auto con el nombre de su dueño
-*    2.Por cada dueño los autos que tiene estacionados.
-*    3.Ingresar un dueño y mostrar todos sus autos.
-*    4.Mostrar el total de la estadia de cada auto, sabiendo que
-*      el valor hora es $100
-*    5.Mostrar cuanto debera pagar cada dueño por todos sus autos estacionados
-*    6.Mostrar el/los dueños con mas autos estacionados
-*
-***********************************************************************************/
-
 int main()
 {
     int opcion;
+    int auxOption;
     int auxId;
-    ePersona persona[LENP];
+    int id=1;
+    int auxInt;
+    ePropietario persona[LENP];
     eVehiculo vehiculo[LENA];
 
-    hardcodearPersonas(persona,LENP);
-    hardcodearVehiculo(vehiculo,LENA);
+    initPropietarios(persona,LENP);
+    initVehiculos(vehiculo,LENA);
+    hardcodePropietarios(persona);
+    ///No anda el Hardcode, revisar.
+//    hardcodearPersonas(persona,LENP);
+//    hardcodearVehiculo(vehiculo,LENA);
+
 
     do
     {
-        system("cls");
-        printf("Ingrese la opcion deseada:\n\n1.Cada auto con el nombre de su duenio\n2.Por cada duenio los autos que tiene estacionados.\n3.Ingresar un duenio y mostrar todos sus autos.\n4.Mostrar el total de la estadia de cada auto. Valor hora $100\n5.Mostrar cuanto debera pagar cada duenio por todos sus autos estacionados\n6.Mostrar el/los duenios con mas autos estacionados\n7.Salir.\n\n");
-        scanf("%d",&opcion);
+//        system("cls");
+        opcion=showMenuGetOption("Ingrese la opcion deseada:\n\n1.Cargar un propietario.\n2.Eliminar un propietario.\n3.Modificar datos de un propietario.\n4.Ingresar un vehiculo.\n5.Egresar un vehiculo.\n6.Informar.\n7.Salir.\n\n",1,7);
 
         switch (opcion)
         {
         case 1:
-            mostrarVehiculosYDuenios(persona,vehiculo,LENP,LENA);
+            if(cargarPropietario(persona,LENP,id)==0)
+            {
+                showMessage("El empleado se cargo con exito.\n");
+                id++;
+            }else{
+                showMessage("Hubo un error al cargar el empleado.\n");
+            }
             break;
         case 2:
             system("cls");
-            mostrarPersonasYSusVehiculos(persona,vehiculo,LENP,LENA);
+            auxId=getPositiveInt("Ingrese el id del propietario que desea eliminar:\n");
+            removeElement(persona,LENP,auxId);
             break;
         case 3:
             system("cls");
-            printf("Ingrese el ID del titular cuyos vehiculos quiere consultar:\n");
-            scanf("%d",&auxId);
-            mostrarVehiculoPorID(persona,vehiculo,LENP,LENA,auxId);
+            auxId=getPositiveInt("Indique el ID del propietario a modificar:\n\n");
+            auxInt=buscarIndicePropietario(persona,LENP,auxId);
+            mostrarPersonaPorIndice(persona,auxInt);
+            printf("\n");
+            auxOption=showMenuGetOption("Se muestra el propietario. Indique el campo a modificar.\n\n1)Nombre.\n2)Dia de nacimiento.\n3)Mes de nacimiento.\n4)Anio de nacimiento.\n5)Cancelar.\n",1,5);
+            switch(auxOption)
+            {
+            case 1:
+                modName(persona,auxInt);
+                break;
+            case 2:
+                modDay(persona,auxInt);
+                break;
+            case 3:
+                modMonth(persona,auxInt);
+                break;
+            case 4:
+                modYear(persona,auxInt);
+                break;
+            case 5:
+                break;
+            }
             break;
         case 4:
-            mostrarTodasLasTarifas(vehiculo,LENA);
+            cargarVehiculo(vehiculo,LENA);
             break;
         case 5:
-            mostrarTarifaPorDuenio(persona,vehiculo,LENP,LENA);
+            egresarVehiculo(vehiculo,LENA);
             break;
         case 6:
-            mostrarPersonaConMasAutos(persona,vehiculo,LENP,LENA);
+            auxOption=showMenuGetOption("1)Todos los propietarios ordenador por nombre y año de nacimiento\n2)Todos los vehiculos ordenados por duenio y patente.\n3)Cada auro con el nombre de su duenio.\n4).\n5).\n6).\n7)Mostrar cuanto debera pagar cada dueño por todos sus autos estacionados.\n8).\n9)Salir.\n\n",1,9);
+            switch(auxOption)
+            {
+            case 1:
+                sortElementsByStringAndInt(persona,LENP,1);
+                mostrarPersonas(persona,LENP);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                mostrarTarifaPorDuenio(persona,vehiculo,LENA,LENP);
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            }
             break;
         case 7:
             break;
@@ -64,3 +104,4 @@ int main()
 
     return 0;
 }
+

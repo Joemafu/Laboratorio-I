@@ -45,3 +45,15 @@
 1569627284 source:c:\users\joelcck\google drive\workspace\laboratorio-i\clase 12 estacionamiento parte 2\estacionamiento.c
 	"Estacionamiento.h"
 
+1570114655 source:d:\mahafud\laboratorio-i\clase 13 estacionamiento parte 3\estacionamiento.c
+	"Estacionamiento.h"
+
+1570114655 d:\mahafud\laboratorio-i\clase 13 estacionamiento parte 3\estacionamiento.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1570115056 source:d:\mahafud\laboratorio-i\clase 13 estacionamiento parte 3\main.c
+	"Estacionamiento.h"
+
