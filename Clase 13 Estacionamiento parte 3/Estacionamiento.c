@@ -1,17 +1,17 @@
 #include "Estacionamiento.h"
 
-void hardcodearVehiculo (eVehiculo vehiculo[], int lenA)
+void hardcodearVehiculo (eVehiculo vehiculo[])
 {
     int i;
-    int id[]={1,6,6,7,5,4,4,3,3,4};
-    char patente[][15]={"AAA111", "BBB222", "AAA222","WWW777","AKK222","EEE111","UUU777","YYY778","ABC123","QQQ128"};
-    int horaEntrada[]={10,9,8,11,10,11,9,7,7,14};
-    int horaSalida[]={11,11,11,12,14,15,12,10,11,17};
-    int dia[]={26,26,26,26,26,26,26,26,26,26};
-    int mes[]={9,9,9,9,9,9,9,9,9,9};
-    int anio[]={2019,2019,2019,2019,2019,2019,2019,2019,2019,2019};
+    int id[10]= {1,6,6,7,5,4,4,3,3,4};
+    char patente[10][8]= {"AAA111", "BBB222", "AAA222","WWW777","AKK222","EEE111","UUU777","YYY778","ABC123","QQQ128"};
+    int horaEntrada[10]= {10,9,8,11,10,11,9,7,7,14};
+    int horaSalida[10]= {11,11,11,12,14,15,12,10,11,17};
+    int dia[10]= {26,26,26,26,26,26,26,26,26,26};
+    int mes[10]= {9,9,9,9,9,9,9,9,9,9};
+    int anio[10]= {2019,2019,2019,2019,2019,2019,2019,2019,2019,2019};
 
-    for(i=0;i<lenA;i++)
+    for(i=0; i<10; i++)
     {
         vehiculo[i].idPropietario=id[i];
         vehiculo[i].fechaIngreso.dia=dia[i];
@@ -20,19 +20,72 @@ void hardcodearVehiculo (eVehiculo vehiculo[], int lenA)
         vehiculo[i].horaIngreso=horaEntrada[i];
         vehiculo[i].horaSalida=horaSalida[i];
         strcpy(vehiculo[i].patente,patente[i]);
+        vehiculo[i].isEmpty=0;
     }
     return;
 }
 
+
+void hardcodePropietarios (ePropietario* list)
+{
+    int id[10]= {1,2,3,4,5,6,7,8,9,10};
+    char name[10][51]= {"Homero","Bob","Moe","Apu","Rafa","Juan","Hank","Barney","Lenny","Carl"};
+//    char lastName[10][51]= {"Simpson","Patinio","Szyslak","Nahasapeemapetilan","Gorgory","Topo","Scorpio","Gomez","Leonard","Carlson"};
+    int dia[10]= {7,21,4,30,1,17,1,19,7,11};
+    int mes[10]= {7,4,4,3,1,3,1,1,7,7};
+    int anio[10]= {1991,1992,2001,2000,1964,1955,1958,1976,1984,1990};
+    int i;
+
+    for(i=0; i<10; i++)
+    {
+        list[i].idPropietario=id[i];
+        strcpy(list[i].nombre,name[i]);
+        list[i].fechaNac.dia=dia[i];
+        list[i].fechaNac.mes=mes[i];
+        list[i].fechaNac.anio=anio[i];
+        list[i].isEmpty=0;
+    }
+    return;
+}
+
+void mostrarTarifaPorDuenio (ePropietario persona[],eVehiculo vehiculo[],int lenP,int lenA)
+{
+    int i;
+    int j;
+    int total=0;
+    system("cls");
+    for(i=0; i<lenP; i++)
+    {
+        if(persona[i].isEmpty==0)
+        {
+            printTabP();
+            mostrarPersonaPorIndice(persona,i);
+            printTabA();
+            for(j=0; j<lenA; j++)
+            {
+                if((persona[i].idPropietario==vehiculo[j].idPropietario)&&(vehiculo[j].isEmpty==0))
+                {
+                    total+=calcularTarifaAuto(vehiculo,lenA,j);
+                    mostrarVehiculoPorIndice(vehiculo,j);
+                }
+            }
+            printf("\n%s debe en total %d por todos sus vehiculos.\n",persona[i].nombre,total);
+            printSeparation();
+            total=0;
+        }
+    }
+    system("pause");
+    return;
+}
 
 void mostrarPersonas (ePropietario persona[], int lenP)
 {
     int i;
     system("cls");
     printf("Datos del titular:\n\nID\t\tNombre\t\tFecha de Nacimiento.\n\n");
-    for(i=0;i<lenP;i++)
+    for(i=0; i<lenP; i++)
     {
-        if(persona[i].estaVacio==0)
+        if(persona[i].isEmpty==0)
         {
             mostrarPersonaPorIndice(persona,i);
         }
@@ -51,25 +104,25 @@ void mostrarPersonaPorIndice (ePropietario persona[], int i)
     return;
 }
 
-///Funciona pero no se utiliza.-
-//void mostrarPersonaPorID (ePropietario persona[], int lenP,int id)
-//{
-//    int i;
-//    i=buscarIndicePropietario(persona,lenP,id);
-//    mostrarPersonaPorIndice(persona,i);
-//    return;
-//}
+
+void mostrarPersonaPorID (ePropietario persona[], int lenP,int id)
+{
+    int i;
+    i=buscarIndicePropietario(persona,lenP,id);
+    mostrarPersonaPorIndice(persona,i);
+    return;
+}
 
 void mostrarPersonasYSusVehiculos (ePropietario persona[], eVehiculo vehiculo[],int lenP,int lenA)
 {
     int i;
     int j;
-    for(i=0;i<lenP;i++)
+    for(i=0; i<lenP; i++)
     {
         printTabP();
         mostrarPersonaPorIndice(persona,i);
         printTabA();
-        for(j=0;j<lenA;j++)
+        for(j=0; j<lenA; j++)
         {
             if(persona[i].idPropietario==vehiculo[j].idPropietario)
             {
@@ -102,7 +155,7 @@ void mostrarVehiculoPorID(ePropietario persona[], eVehiculo vehiculo[],int lenP,
     printTabP();
     mostrarPersonaPorIndice(persona,i);
     printTabA();
-    for(j=0;j<lenA;j++)
+    for(j=0; j<lenA; j++)
     {
         if(vehiculo[j].idPropietario==id)
         {
@@ -116,7 +169,7 @@ void mostrarVehiculoPorID(ePropietario persona[], eVehiculo vehiculo[],int lenP,
 int buscarIndicePropietario(ePropietario persona[],int lenP,int id)
 {
     int i;
-    for(i=0;i<lenP;i++)
+    for(i=0; i<lenP; i++)
     {
         if (id==persona[i].idPropietario)
         {
@@ -126,32 +179,32 @@ int buscarIndicePropietario(ePropietario persona[],int lenP,int id)
     return -1;
 }
 
-///Funciona pero no se utiliza.-
-//void mostrarVehiculoPorPatente(ePropietario persona[], eVehiculo vehiculo[],int lenP,int lenA)
-//{
-//    int i;
-//    char patente[8];
-//
-//    printf("Ingrese la patente del vehiculo a mostrar:\n\n");
-//    scanf("%s",patente);
-//    system("cls");
-//
-//    for(i=0;i<lenA;i++)
-//    {
-//        if(stricmp(patente,vehiculo[i].patente)==0)
-//        {
-//            printf("Datos del vehiculo:\n\nID \tPat.\tDia\tMes\tAnio\tHora ing.\tHora egr.\n");
-//            mostrarVehiculoPorIndice(vehiculo,i);
-//
-//            i=buscarIndicePropietario(persona,lenP,vehiculo[i].idPropietario);
-//            printf("Datos del titular:\n\nID\t\tNombre\t\tFecha de Nacimiento.\n\n");
-//            mostrarPersonaPorIndice(persona,i);
-//            break;
-//        }
-//    }
-//    system("pause");
-//    return;
-//}
+
+void mostrarVehiculoPorPatente(ePropietario persona[], eVehiculo vehiculo[],int lenP,int lenA)
+{
+    int i;
+    char patente[8];
+
+    printf("Ingrese la patente del vehiculo a mostrar:\n\n");
+    scanf("%s",patente);
+    system("cls");
+
+    for(i=0;i<lenA;i++)
+    {
+        if(stricmp(patente,vehiculo[i].patente)==0)
+        {
+            printf("Datos del vehiculo:\n\nID \tPat.\tDia\tMes\tAnio\tHora ing.\tHora egr.\n");
+            mostrarVehiculoPorIndice(vehiculo,i);
+
+            i=buscarIndicePropietario(persona,lenP,vehiculo[i].idPropietario);
+            printf("Datos del titular:\n\nID\t\tNombre\t\tFecha de Nacimiento.\n\n");
+            mostrarPersonaPorIndice(persona,i);
+            break;
+        }
+    }
+    system("pause");
+    return;
+}
 
 int calcularTarifaAuto(eVehiculo vehiculo[],int lenA,int index)
 {
@@ -165,7 +218,7 @@ void mostrarTodasLasTarifas (eVehiculo vehiculo[], int lenA)
     int i;
     int total;
     system("cls");
-    for(i=0;i<lenA;i++)
+    for(i=0; i<lenA; i++)
     {
         mostrarVehiculoPorIndice(vehiculo, i);
         total=calcularTarifaAuto(vehiculo,lenA,i);
@@ -188,63 +241,29 @@ void printTabA()
     printf("\n\nDatos del/los vehiculos:\n\nID\t  Patente\tFecha de Ingreso\tHora ing.\tHora Egr.\n\n");
 }
 
-
-///----------------------------------------------------------------REPARAR
-
-
-
-void mostrarTarifaPorDuenio (ePropietario persona[],eVehiculo vehiculo[],int lenA,int lenP)
-{
-    int i;
-    int j;
-    int total=0;
-    system("cls");
-    for(i=0;i<lenP;i++)
-    {
-        if(persona[i].estaVacio==0)
-        {
-            printTabP();
-            mostrarPersonaPorIndice(persona,i);
-            printTabA();
-            for(j=0;j<lenA;j++)
-        {
-            if((persona[i].idPropietario==vehiculo[j].idPropietario)&&(vehiculo[i].isEmpty==0))
-            {
-                total+=calcularTarifaAuto(vehiculo,lenA,j);
-                mostrarVehiculoPorIndice(vehiculo,j);
-            }
-        }
-        printf("\n%s debe en total %d por todos sus vehiculos.\n",persona[i].nombre,total);
-        printSeparation();
-        total=0;
-        }
-    }
-    system("pause");
-    return;
-}
-
-///----------------------------------------------------------------REPARAR
-
 void mostrarVehiculosYDuenios (ePropietario persona[],eVehiculo vehiculo[],int lenp,int lena)
 {
     int i;
     int j;
     system("cls");
 
-    for(i=0;i<lena;i++)
+    for(i=0; i<lena; i++)
     {
-        printTabA();
-        mostrarVehiculoPorIndice(vehiculo,i);
-        for(j=0;j<lenp;j++)
+        if(vehiculo[i].isEmpty==0)
         {
-            if (vehiculo[i].idPropietario==persona[j].idPropietario)
+            printTabA();
+            mostrarVehiculoPorIndice(vehiculo,i);
+            for(j=0; j<lenp; j++)
             {
-                printTabP();
-                mostrarPersonaPorIndice(persona,j);
-                break;
+                if ((persona[j].isEmpty==0)&&(vehiculo[i].idPropietario==persona[j].idPropietario))
+                {
+                    printTabP();
+                    mostrarPersonaPorIndice(persona,j);
+                    break;
+                }
             }
+            printSeparation();
         }
-        printSeparation();
     }
     system("pause");
     return;
@@ -263,29 +282,35 @@ void mostrarPersonaConMasAutos(ePropietario persona[],eVehiculo vehiculo[],int l
     printf("Ingrese la hora:\n");
     scanf("%d",&hora);
     printf("\nPropietario/s con mas autos estacionados:\n\n");
-    for(t=0;t<2;t++)
+    for(t=0; t<2; t++)
     {
-
-        for(i=0;i<lenP;i++)
+        for(i=0; i<lenP; i++)
         {
-            cont=0;
-            for(j=0;j<lenA;j++)
+            if(persona[i].isEmpty==0)
             {
-                if((persona[i].idPropietario==vehiculo[j].idPropietario)&&(hora>=vehiculo[j].horaIngreso&&hora<vehiculo[j].horaSalida))
+                cont=0;
+                for(j=0; j<lenA; j++)
                 {
-                    cont++;
+                    if((vehiculo[j].isEmpty==0)&&(persona[i].idPropietario==vehiculo[j].idPropietario)&&(hora>=vehiculo[j].horaIngreso&&hora<vehiculo[j].horaSalida))
+                    {
+                        cont++;
+                    }
                 }
-            }
-            if(cont>maxA&&flagMaxEncontrado==0)
-            {
-                maxA=cont;
-            }
-            if(cont==maxA&&flagMaxEncontrado==1)
-            {
-                printf("%s con %d auto/s\n",persona[i].nombre,maxA);
+                if(cont>maxA&&flagMaxEncontrado==0)
+                {
+                    maxA=cont;
+                }
+                if(maxA!=0&&cont==maxA&&flagMaxEncontrado==1)
+                {
+                    printf("%s con %d auto/s\n",persona[i].nombre,maxA);
+                }
             }
         }
         flagMaxEncontrado=1;
+    }
+    if(maxA==0)
+    {
+        printf("No hay vehiculos estacionados a la hora indicada.\n\n");
     }
     system("pause");
     return;
@@ -308,11 +333,11 @@ int cargarPropietario(ePropietario* persona,int len,int id)
     {
         for(i=0; i<len; i++)
         {
-            if(persona[i].estaVacio==1)
+            if(persona[i].isEmpty==1)
             {
                 persona[i].idPropietario = id;
                 strcpy(persona[i].nombre,name);
-                persona[i].estaVacio=0;
+                persona[i].isEmpty=0;
                 persona[i].fechaNac.dia=dia;
                 persona[i].fechaNac.mes=mes;
                 persona[i].fechaNac.anio=anio;
@@ -335,7 +360,7 @@ int getPositiveInt(char message[])
         scanf("%s",string);
         fflush(stdin);
         ret=0;
-        for(i=0;string[i]!='\0';i++)
+        for(i=0; string[i]!='\0'; i++)
         {
             if(string[i]<48||string[i]>57)
             {
@@ -344,7 +369,8 @@ int getPositiveInt(char message[])
                 break;
             }
         }
-    }while(ret==-1);
+    }
+    while(ret==-1);
     ret=atoi(string);
     return ret;
 }
@@ -383,7 +409,8 @@ int getAlphabeticalString (char message[],char string[],int maxLen)
             }
         }
 
-    }while(len==0||ret==0);
+    }
+    while(len==0||ret==0);
 
 
     return ret;
@@ -407,7 +434,7 @@ int initPropietarios(ePropietario* persona, int len)                            
     {
         for (i=0; i<len; i++)
         {
-            persona[i].estaVacio=1;
+            persona[i].isEmpty=1;
         }
         ret=0;
     }
@@ -434,7 +461,7 @@ int removeElement(ePropietario* list, int len, int id)                          
 
         if(getConfirm()==1)
         {
-            list[i].estaVacio = 1;
+            list[i].isEmpty = 1;
             showMessage("El propietario se dio de baja con exito.\n");
             ret=0;
         }
@@ -454,7 +481,7 @@ int findElementById(ePropietario* list, int len,int id)                         
     int ret=-1;
     for(i=0; i<len; i++)
     {
-        if(list[i].idPropietario==id && list[i].estaVacio==0)
+        if(list[i].idPropietario==id && list[i].isEmpty==0)
         {
             ret=i;
             break;
@@ -643,7 +670,8 @@ int getAlphanumericalString (char message[],char string[],int maxLen)
             }
         }
 
-    }while(len==0||ret==0);
+    }
+    while(len==0||ret==0);
 
 
     return ret;
@@ -657,7 +685,7 @@ void egresarVehiculo(eVehiculo* vehiculo,int len)
     hora=getPositiveInt("\nIngrese la hora de salida del vehículo:\n");
     int i;
 
-    for(i=0;i<len;i++)
+    for(i=0; i<len; i++)
     {
         if(stricmp(patente,vehiculo[i].patente))
         {
@@ -721,35 +749,12 @@ int sortElementsByStringAndInt(ePropietario* list, int len, int order)          
 }
 
 
-void hardcodePropietarios (ePropietario* list)
-{
-    int id[10]= {1,2,3,4,5,6,7,8,9,10};
-//    char name[10][51]= {"Homero","Bob","Moe","Apu","Rafa","Juan","Hank","Barney","Lenny","Carl"};
-    char name[10][51]= {"Homero","Homero","Homero","Homero","Homero","Homero","Homero","Homero","Homero","Homero"};
-    int dia[10]= {7,21,4,30,1,17,1,19,7,11};
-    int mes[10]= {7,4,4,3,1,3,1,1,7,7};
-    int anio[10]= {1991,1992,2001,2000,1964,1955,1958,1976,1984,1990};
-    int i;
-
-    for(i=0; i<10; i++)
-    {
-        list[i].idPropietario=id[i];
-        strcpy(list[i].nombre,name[i]);
-        list[i].fechaNac.dia=dia[i];
-        list[i].fechaNac.mes=mes[i];
-        list[i].fechaNac.anio=anio[i];
-        list[i].estaVacio=0;
-    }
-    return;
-}
-
-
-int sortElementsBy(ePropietario* list, int len, int order)                                                            ///2.5 Función sortEmployees:
+int sortElementsByIntAndString(eVehiculo* list, int len, int order)                                                            ///2.5 Función sortEmployees:
 {
     int i;
     int j;
     int ret=-1;
-    ePropietario aux[1];
+    eVehiculo aux[1];
 
     if(list!=NULL||len<0||order<0||order>1)
     {
@@ -760,13 +765,13 @@ int sortElementsBy(ePropietario* list, int len, int order)                      
                 switch(order)
                 {
                 case 0:
-                    if (stricmp(list[i].nombre,list[j].nombre)>0)
+                    if (list[i].idPropietario>list[j].idPropietario)
                     {
                         aux[0]=list[i];
                         list[i]=list[j];
                         list[j]=aux[0];
                     }
-                    if((stricmp(list[i].nombre,list[j].nombre)==0) && (list[i].fechaNac.anio>list[j].fechaNac.anio))
+                    if((list[i].idPropietario==list[j].idPropietario)&&(stricmp(list[i].patente,list[j].patente)>0))
                     {
                         aux[0]=list[i];
                         list[i]=list[j];
@@ -774,13 +779,13 @@ int sortElementsBy(ePropietario* list, int len, int order)                      
                     }
                     break;
                 case 1:
-                    if (stricmp(list[i].nombre,list[j].nombre)<0)
+                    if (list[i].idPropietario<list[j].idPropietario)
                     {
                         aux[0]=list[i];
                         list[i]=list[j];
                         list[j]=aux[0];
                     }
-                    if((stricmp(list[i].nombre,list[j].nombre)==0) && (list[i].fechaNac.anio<list[j].fechaNac.anio))
+                    if((list[i].idPropietario==list[j].idPropietario) &&(stricmp(list[i].patente,list[j].patente)<0) )
                     {
                         aux[0]=list[i];
                         list[i]=list[j];

@@ -14,13 +14,13 @@ int main()
     initVehiculos(vehiculo,LENA);
     hardcodePropietarios(persona);
     ///No anda el Hardcode, revisar.
-//    hardcodearPersonas(persona,LENP);
-//    hardcodearVehiculo(vehiculo,LENA);
+    hardcodearVehiculo(vehiculo);
+
 
 
     do
     {
-//        system("cls");
+        system("cls");
         opcion=showMenuGetOption("Ingrese la opcion deseada:\n\n1.Cargar un propietario.\n2.Eliminar un propietario.\n3.Modificar datos de un propietario.\n4.Ingresar un vehiculo.\n5.Egresar un vehiculo.\n6.Informar.\n7.Salir.\n\n",1,7);
 
         switch (opcion)
@@ -71,7 +71,7 @@ int main()
             egresarVehiculo(vehiculo,LENA);
             break;
         case 6:
-            auxOption=showMenuGetOption("1)Todos los propietarios ordenador por nombre y año de nacimiento\n2)Todos los vehiculos ordenados por duenio y patente.\n3)Cada auro con el nombre de su duenio.\n4).\n5).\n6).\n7)Mostrar cuanto debera pagar cada dueño por todos sus autos estacionados.\n8).\n9)Salir.\n\n",1,9);
+            auxOption=showMenuGetOption("1)Todos los propietarios ordenador por nombre y año de nacimiento\n2)Todos los vehiculos ordenados por duenio y patente.\n3)Cada auro con el nombre de su duenio.\n4).\n5).\n6)Mostrar el total de la estadía de cada auto ($100 la hora).\n7)Mostrar cuanto debera pagar cada dueño por todos sus autos estacionados.\n8)Mostrar el/los dueños con más autos estacionados.\n9)Salir.\n\n",1,9);
             switch(auxOption)
             {
             case 1:
@@ -79,6 +79,8 @@ int main()
                 mostrarPersonas(persona,LENP);
                 break;
             case 2:
+                sortElementsByIntAndString(vehiculo,LENA,1);
+
                 break;
             case 3:
                 break;
@@ -87,11 +89,13 @@ int main()
             case 5:
                 break;
             case 6:
+                mostrarVehiculosYDuenios(persona,vehiculo,LENP,LENA);
                 break;
             case 7:
-                mostrarTarifaPorDuenio(persona,vehiculo,LENA,LENP);
+                mostrarTarifaPorDuenio(persona,vehiculo,LENP,LENA);
                 break;
             case 8:
+                mostrarPersonaConMasAutos(persona,vehiculo,LENP,LENA);
                 break;
             case 9:
                 break;

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1570196344 source:d:\mahafud\laboratorio-i\parcial 1 mahafud\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
