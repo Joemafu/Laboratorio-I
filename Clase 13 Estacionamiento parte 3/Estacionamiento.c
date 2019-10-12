@@ -51,14 +51,14 @@ void mostrarPersonaPorIndice (ePropietario persona[], int i)
     return;
 }
 
-///Funciona pero no se utiliza.-
-//void mostrarPersonaPorID (ePropietario persona[], int lenP,int id)
-//{
-//    int i;
-//    i=buscarIndicePropietario(persona,lenP,id);
-//    mostrarPersonaPorIndice(persona,i);
-//    return;
-//}
+
+void mostrarPersonaPorID (ePropietario persona[], int lenP,int id)
+{
+    int i;
+    i=buscarIndicePropietario(persona,lenP,id);
+    mostrarPersonaPorIndice(persona,i);
+    return;
+}
 
 void mostrarPersonasYSusVehiculos (ePropietario persona[], eVehiculo vehiculo[],int lenP,int lenA)
 {
@@ -126,32 +126,32 @@ int buscarIndicePropietario(ePropietario persona[],int lenP,int id)
     return -1;
 }
 
-///Funciona pero no se utiliza.-
-//void mostrarVehiculoPorPatente(ePropietario persona[], eVehiculo vehiculo[],int lenP,int lenA)
-//{
-//    int i;
-//    char patente[8];
-//
-//    printf("Ingrese la patente del vehiculo a mostrar:\n\n");
-//    scanf("%s",patente);
-//    system("cls");
-//
-//    for(i=0;i<lenA;i++)
-//    {
-//        if(stricmp(patente,vehiculo[i].patente)==0)
-//        {
-//            printf("Datos del vehiculo:\n\nID \tPat.\tDia\tMes\tAnio\tHora ing.\tHora egr.\n");
-//            mostrarVehiculoPorIndice(vehiculo,i);
-//
-//            i=buscarIndicePropietario(persona,lenP,vehiculo[i].idPropietario);
-//            printf("Datos del titular:\n\nID\t\tNombre\t\tFecha de Nacimiento.\n\n");
-//            mostrarPersonaPorIndice(persona,i);
-//            break;
-//        }
-//    }
-//    system("pause");
-//    return;
-//}
+
+void mostrarVehiculoPorPatente(ePropietario persona[], eVehiculo vehiculo[],int lenP,int lenA)
+{
+    int i;
+    char patente[8];
+
+    printf("Ingrese la patente del vehiculo a mostrar:\n\n");
+    scanf("%s",patente);
+    system("cls");
+
+    for(i=0;i<lenA;i++)
+    {
+        if(stricmp(patente,vehiculo[i].patente)==0)
+        {
+            printf("Datos del vehiculo:\n\nID \tPat.\tDia\tMes\tAnio\tHora ing.\tHora egr.\n");
+            mostrarVehiculoPorIndice(vehiculo,i);
+
+            i=buscarIndicePropietario(persona,lenP,vehiculo[i].idPropietario);
+            printf("Datos del titular:\n\nID\t\tNombre\t\tFecha de Nacimiento.\n\n");
+            mostrarPersonaPorIndice(persona,i);
+            break;
+        }
+    }
+    system("pause");
+    return;
+}
 
 int calcularTarifaAuto(eVehiculo vehiculo[],int lenA,int index)
 {
@@ -223,7 +223,7 @@ void mostrarTarifaPorDuenio (ePropietario persona[],eVehiculo vehiculo[],int len
     return;
 }
 
-///----------------------------------------------------------------REPARAR
+///----------------------------------------------------------------FIN DE REPARAR
 
 void mostrarVehiculosYDuenios (ePropietario persona[],eVehiculo vehiculo[],int lenp,int lena)
 {
