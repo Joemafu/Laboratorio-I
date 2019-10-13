@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1570196344 source:d:\mahafud\laboratorio-i\parcial 1 mahafud\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1570915407 source:c:\users\joel\google drive\workspace\laboratorio-i\parcial 1 programacion 4-10\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

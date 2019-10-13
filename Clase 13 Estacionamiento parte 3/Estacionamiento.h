@@ -16,7 +16,7 @@ typedef struct
 {
     int idPropietario;
     char nombre[51];
-    int estaVacio;
+    int isEmpty;
     eFecha fechaNac;
 }ePropietario;
 
@@ -31,19 +31,19 @@ typedef struct
     int isEmpty;
 }eVehiculo;
 
-void hardcodearPersonas(ePropietario*,int);
-
-void hardcodearVehiculo(eVehiculo*,int);
 
 
+void hardcodearVehiculo(eVehiculo*);
 
-//void mostrarPersonas (ePropietario*,int);
+
+
+void mostrarPersonas (ePropietario*,int);
 
 int buscarIndicePropietario(ePropietario*,int,int);
 
 void mostrarPersonaPorIndice (ePropietario*,int);
 
-//void mostrarPersonaPorID (ePropietario*,int,int);
+void mostrarPersonaPorID (ePropietario*,int,int);
 
 
 
@@ -51,7 +51,7 @@ void mostrarVehiculoPorIndice(eVehiculo*,int);
 
 void mostrarVehiculoPorID(ePropietario*,eVehiculo*,int,int,int);
 
-//void mostrarVehiculoPorPatente(ePropietario*, eVehiculo*,int,int);
+void mostrarVehiculoPorPatente(ePropietario*, eVehiculo*,int,int);
 
 int calcularTarifaAuto(eVehiculo*,int,int);
 
@@ -107,6 +107,8 @@ void hardcodePropietarios (ePropietario* list);
 int sortElementsByStringAndInt(ePropietario* list, int len, int order);
 
 void mostrarPersonas (ePropietario persona[], int lenP);
+
+int sortElementsByStringAndInt(ePropietario* list, int len, int order);
 
 
 void printSeparation();
