@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1571410478 source:d:\mahafud\laboratorio-i\clase 18 memoria dinamica\memoria dinamica\main.c
+	"persona.h"
+
+1571410693 d:\mahafud\laboratorio-i\clase 18 memoria dinamica\memoria dinamica\persona.h
+	<stdio.h>
+	<stdlib.h>
+

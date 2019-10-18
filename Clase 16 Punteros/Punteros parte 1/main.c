@@ -7,13 +7,10 @@ int main()
     int* puntero = NULL; ///NULL = no dirección de memoria..
     int* otroPuntero;
 
-
-
     puntero = &unEntero;
 //    *puntero = 10;
 
-///Como controlar que el puntero se asigne correctamente.
-    if(puntero!=NULL)
+    if(puntero!=NULL)///Como controlar que el puntero se asigne correctamente.
     {
         otroPuntero=puntero;
         printf("Ingrese numero: \n");
