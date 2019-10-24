@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1571921031 source:d:\mahafud\laboratorio-i\clase 19 ordenamiento por puntero\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1571928903 source:d:\mahafud\laboratorio-i\clase 19 ordenamiento por puntero\mainp.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+
