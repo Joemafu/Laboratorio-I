@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1572014790 source:d:\mahafud\laboratorio-i\clase 20 archivos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1572016817 source:d:\mahafud\laboratorio-i\clase 20 archivos\nuevo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
