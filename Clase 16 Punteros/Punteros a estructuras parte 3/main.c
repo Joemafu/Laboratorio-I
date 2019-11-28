@@ -35,7 +35,7 @@ void cargarDatos(eDato* listaDatos, int tam)
 {
     int i;
 
-        for(i=0;i<tam;i++)
+    for(i=0;i<tam;i++)
     {
         printf("Ingrese entero\n");
         scanf("%d",&(listaDatos+i)->a);

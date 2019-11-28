@@ -6,7 +6,7 @@ int main()
 
     pPerson=newPersonaParametros(100,40,1.87);
 
-//    mostrarPersona(pPerson*);
+    mostrarPersona(pPerson);
 
     return 0;
 }

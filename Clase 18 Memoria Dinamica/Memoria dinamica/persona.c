@@ -2,7 +2,8 @@
 
 ePersona* new_person()
 {
-    ePersona* myPerson;///={100,40,1.87};
+    ePersona* myPerson;
+//    ePersona* myPerson={100,40,1.87};
 
     myPerson=malloc(sizeof (ePersona));
 
@@ -18,25 +19,29 @@ int mostrarPersona (ePersona* unaPersona)
     int ret=-1;
     if(unaPersona!=NULL)
     {
-            printf("%d--%d--%f",ePersona->file,ePersona->age,ePersona->height);
+        printf("%d--%d--%f",unaPersona->file,unaPersona->age,unaPersona->height);
+        ret=1;
     }
 
-    deletePersona(unaPersona)
+    deletePersona(unaPersona);
+    return ret;
 }
 
-int deletePersona(ePersona*);
+void deletePersona(ePersona* unaPersona)
 {
-    int ret=-1;
     if(unaPersona!=NULL)
     {
-            free(unaPersona*);
+        free(unaPersona);
     }
     else
+    {
+        printf("Error.\n");
+    }
 }
 
 ePersona* newPersonaParametros(int legajo, int edad, float altura)
 {
-    ePersona* miPersona = new_Person();
+    ePersona* miPersona = new_person();
 
     if (miPersona!=NULL)
     {

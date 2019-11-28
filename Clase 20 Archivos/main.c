@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/*
+
 int main()
 {
     FILE* pArchive;
@@ -23,7 +23,7 @@ int main()
     fprintf(pArchive, "Tengo 27 anios.\n");
     fprintf(pArchive, "Mi apellido es Mahafud.\n");
     fprintf(pArchive, "Sexo masculino.\n");
-    fprintf(pArchive, "Hello world.\n");
+    fprintf(pArchive, "Hello world.");
 
     ///Cierra el archivo y pisa guardando los cambios.
     fclose(pArchive);
@@ -35,26 +35,29 @@ int main()
     ///Modo solo lectura.
     pArchive=fopen("miNombre.txt","r");
 
-
-    while(feof(pArchive))///Find end of file.
+    do
     {
         ///Obtiene un string desde un archivo.
         fgets(aux,50,pArchive);
+        printf("%s", aux);
+//        strcpy(miNombre,aux);
+//        i++;
+    }while(!feof(pArchive));///Find end of file.
 
-        strcpy(miNombre[i],aux);
-        i++;
 
-
-    }
-
-    while(feof(pArchive))///Find end of file.
-    {
-        printf("%s", miNombre);
-    }
+//    while(!feof(pArchive))///Find end of file.
+//    {
+////        printf("%s", aux);
+////        printf("%s", aux);
+////        printf("%s", miNombre);
+////        printf("%s", miNombre);
+////        printf("%s", miNombre);
+//        system("pause");
+//    }
 
     ///Cierra el archivo y pisa guardando los cambios.
     fclose(pArchive);
 
     return 0;
 }
-*/
+

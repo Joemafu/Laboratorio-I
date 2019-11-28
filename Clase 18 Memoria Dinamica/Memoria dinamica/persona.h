@@ -12,7 +12,7 @@ typedef struct
 
 ePersona* new_person(); ///Constructor por defecto.
 
-ePersona* mostrarPersona(ePersona*);
+int mostrarPersona(ePersona*);
 
 void deletePersona(ePersona*);
 
