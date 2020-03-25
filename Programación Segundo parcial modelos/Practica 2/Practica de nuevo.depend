@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1576449754 source:c:\users\joel\google drive\workspace\practica de nuevo\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

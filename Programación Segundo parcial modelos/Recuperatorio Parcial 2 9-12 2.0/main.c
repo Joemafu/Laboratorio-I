@@ -11,73 +11,71 @@ typedef struct
 
 eAlumno* nuevoAlumno ();
 eAlumno* nuevoAlumnoParametros(int nota, char* nombre);
-void getNota(eAlumno* alumno,int* nota);
-void getNombre(eAlumno* alumno, char* nombre);
-void setNota(eAlumno* alumno, int nota);
-void setNombre(eAlumno* alumno, char* nombre);
-void escribirAlumnos(eAlumno* alumno[],int tam);
-void leerAlumnos(eAlumno* alumno[], char* path);
-void mostrarAlumnos (eAlumno* alumno[],int tam);
+void getNota(eAlumno* pAlumno,int* nota);
+void getNombre(eAlumno* pAlumno, char* nombre);
+void setNota(eAlumno* pAlumno, int nota);
+void setNombre(eAlumno* pAlumno, char* nombre);
+void escribirAlumnos(eAlumno* pAlumno[],int tam);
+void leerAlumnos(eAlumno* pAlumno[], char* path);
+void mostrarAlumnos(eAlumno* pAlumno[],int tam);
 
 int main()
 {
-    eAlumno* alumno[2];
-    alumno[0]=nuevoAlumnoParametros(10,"Pedro");
-    alumno[1]=nuevoAlumnoParametros(6,"Juan");
-
-    escribirAlumnos(alumno,2);
-    leerAlumnos(alumno,"alumnos.bin");
-    mostrarAlumnos(alumno,2);
-
+    eAlumno* pAlumno[2];
+    pAlumno[0]=nuevoAlumnoParametros(10,"Pedro");
+    pAlumno[1]=nuevoAlumnoParametros(6,"Juan");
+    escribirAlumnos(pAlumno,2);
+    leerAlumnos(pAlumno,"alumnos.bin");
+    mostrarAlumnos(pAlumno,2);
     return 0;
 }
 
 eAlumno* nuevoAlumno ()
 {
-    eAlumno* alumno=NULL;
-    alumno=(eAlumno*)malloc(sizeof(alumno));
+    eAlumno* pAlumno=NULL;
+    pAlumno=(eAlumno*)malloc(sizeof(pAlumno));
 
-    return alumno;
+    return pAlumno;
 }
 
 eAlumno* nuevoAlumnoParametros(int nota, char* nombre)
 {
-    eAlumno* alumno;
+    eAlumno* pAlumno;
 
-    alumno=nuevoAlumno();
-    if(alumno!=NULL)
+    pAlumno=nuevoAlumno();
+    if(pAlumno!=NULL)
     {
-        setNota(alumno,nota);
-        setNombre(alumno,nombre);
+        setNota(pAlumno,nota);
+        setNombre(pAlumno,nombre);
     }else
     {
         printf("No se pudo cargar al alumno.\n");
     }
 
-    return alumno;
+    return pAlumno;
 }
 
-void getNota(eAlumno* alumno,int* nota)
+void getNota(eAlumno* pAlumno,int* nota)
 {
-    *nota=alumno->nota;
+    *nota=pAlumno->nota;
 }
 
-void getNombre(eAlumno* alumno, char* nombre)
+void getNombre(eAlumno* pAlumno, char* nombre)
 {
-    strcpy(nombre,alumno->nombre);
+    strcpy(nombre,pAlumno->nombre);
 }
 
-void setNota(eAlumno* alumno, int nota)
+void setNota(eAlumno* pAlumno, int nota)
 {
-    alumno->nota=nota;
+    pAlumno->nota=nota;
 }
 
-void setNombre(eAlumno* alumno, char* nombre)
+void setNombre(eAlumno* pAlumno, char* nombre)
 {
-    strcpy(alumno->nombre,nombre);
+    strcpy(pAlumno->nombre,nombre);
 }
 
-void escribirAlumnos(eAlumno* alumno[],int tam)
+void escribirAlumnos(eAlumno* pAlumno[],int tam)
 {
     int i;
     FILE* pFile=NULL;
@@ -85,20 +83,20 @@ void escribirAlumnos(eAlumno* alumno[],int tam)
 
     for(i=0;i<tam;i++)
     {
-        fwrite(alumno[i],sizeof(eAlumno),1,pFile);
+        fwrite(pAlumno[i],sizeof(eAlumno),1,pFile);
     }
     fclose(pFile);
 }
 
-void leerAlumnos(eAlumno* alumno[], char* path)
+void leerAlumnos(eAlumno* pAlumno[], char* path)
 {
     int i;
     FILE* pFile=NULL;
     pFile=fopen(path,"rb");
     for(i=0;!feof(pFile);i++)
     {
-        alumno[i]=nuevoAlumno();
-        if(fread(alumno[i],sizeof(eAlumno),1,pFile)!=1)
+        pAlumno[i]=nuevoAlumno();
+        if(fread(pAlumno[i],sizeof(eAlumno),1,pFile)!=1)
         {
             break;
         }
@@ -107,15 +105,15 @@ void leerAlumnos(eAlumno* alumno[], char* path)
     fclose(pFile);
 }
 
-void mostrarAlumnos (eAlumno* alumno[],int tam)
+void mostrarAlumnos (eAlumno* pAlumno[],int tam)
 {
     int i;
     eAlumno auxAlumno;
 
     for(i=0;i<tam;i++)
     {
-        getNota(alumno[i],&auxAlumno.nota);
-        getNombre(alumno[i],auxAlumno.nombre);
+        getNota(pAlumno[i],&auxAlumno.nota);
+        getNombre(pAlumno[i],auxAlumno.nombre);
         printf("%s se saco %d\n",auxAlumno.nombre,auxAlumno.nota);
     }
 }
