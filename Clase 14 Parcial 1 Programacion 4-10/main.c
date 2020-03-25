@@ -59,7 +59,7 @@ int main()
     for(i=0;i<5;i++)
     {
         printf("%d\t",producto[i].id);
-        printf("%f\t",producto[i].precio);
+        printf("%.2f\t",producto[i].precio);
         printf("%s\n",producto[i].nombre);
     }
 

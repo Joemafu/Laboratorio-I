@@ -254,3 +254,45 @@
 1571317850 source:c:\users\alumno\desktop\parcial mahafud - parte 5\players.c
 	"Players.h"
 
+1572199923 source:c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\functions.c
+	"Functions.h"
+
+1572199923 c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\functions.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1572199923 source:c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\main.c
+	"Teams.h"
+	"Players.h"
+	"Referees.h"
+	"Matches.h"
+
+1572199923 c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\teams.h
+	"Functions.h"
+
+1572199923 c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\players.h
+	"Functions.h"
+	"Teams.h"
+
+1572199923 c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\referees.h
+	"Functions.h"
+
+1572199923 c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\matches.h
+	"Functions.h"
+	"Teams.h"
+	"Referees.h"
+
+1572199923 source:c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\matches.c
+	"Matches.h"
+
+1572199923 source:c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\players.c
+	"Players.h"
+
+1572199923 source:c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\referees.c
+	"Referees.h"
+
+1572199923 source:c:\users\joelcck\google drive\workspace\laboratorio-i\clase 17 parcial 1 laboratorio 17-10 (segunda parte)\parcial mahafud - punto 5\teams.c
+	"Teams.h"
+

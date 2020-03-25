@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1566486128 source:c:\users\alumno\desktop\intento2\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1566567986 source:c:\users\alumno\desktop\laboratorio-i\clase 1\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1579622796 source:c:\users\joelcck\google drive\workspace\laboratorio-i\clase 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+

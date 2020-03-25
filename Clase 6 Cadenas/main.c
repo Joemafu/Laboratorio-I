@@ -60,9 +60,10 @@ int main()
 
     apellidoNombre[0]-=32; /**< Acá convierto a mayúscula la inicial del apellido */
 
-    for(i=0;i<29;i++)
+    for(i=0; i<29; i++)
     {
-        if (apellidoNombre[i]==32){ /**< Acá detecto el espacio */
+        if (apellidoNombre[i]==32)  /**< Acá detecto el espacio */
+        {
             i++; /**< voy al siguiente subíndice para modificar el char posterior al espacio (Inicial del nombre) */
             apellidoNombre[i]-=32; /**< Le resto 32 al valor ASCII para convertirlo a mayúscula como hice con la inicial del apellido. */
             break;

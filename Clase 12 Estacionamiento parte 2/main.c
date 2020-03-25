@@ -1,6 +1,6 @@
 #include "Estacionamiento.h"
 
-/*********************************************************************************
+/***********************************************************************************
 *    Realizar las siguientes consultas:
 *
 *    1.Cada auto con el nombre de su dueño
@@ -48,7 +48,7 @@ int main()
             mostrarTodasLasTarifas(vehiculo,LENA);
             break;
         case 5:
-            mostrarTarifaPorDuenio(persona,vehiculo,LENP,LENA);
+            mostrarTarifaPorDuenio(persona,vehiculo,LENA,LENP);
             break;
         case 6:
             mostrarPersonaConMasAutos(persona,vehiculo,LENP,LENA);

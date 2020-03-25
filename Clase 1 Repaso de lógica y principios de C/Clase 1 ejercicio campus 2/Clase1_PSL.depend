@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1579623561 source:c:\users\joelcck\google drive\workspace\clase1_psl\clase1_psl\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -79,6 +79,5 @@ void ordenarArray (int miArray[], int cantidadSubindices)
         }
         printf("%d\n", miArray[i]);
     }
-
 }
 

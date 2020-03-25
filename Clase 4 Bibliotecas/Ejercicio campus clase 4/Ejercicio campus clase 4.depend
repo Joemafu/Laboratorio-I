@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1579810307 source:c:\users\joelcck\google drive\workspace\ejercicio campus clase 4\juego.c
+	"juego.h"
+
+1579810307 c:\users\joelcck\google drive\workspace\ejercicio campus clase 4\juego.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1580746268 source:c:\users\joelcck\google drive\workspace\ejercicio campus clase 4\main.c
+	"utn.h"
+
+1580746150 source:c:\users\joelcck\google drive\workspace\ejercicio campus clase 4\utn.c
+	"utn.h"
+
+1580746150 c:\users\joelcck\google drive\workspace\ejercicio campus clase 4\utn.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

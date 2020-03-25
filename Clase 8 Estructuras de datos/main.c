@@ -31,6 +31,7 @@ int main()
     {
         do
         {
+            system("cls");
             printf("1)Cargar alumnos.\n2)Mostrar alumnos.\n3)Ordenar por Nombre.\n4)Mostrar alumno por legajo.\n5)Borrar alumno.\n6)Salir.\n");
             scanf("%d", &opcion);
             system("cls");
@@ -50,34 +51,42 @@ int main()
                 break;
             case 4:
                 printf("Ingrese legajo del alumno a mostrar:\n");
-                scanf("%d", &legajo);
                 fflush(stdin);
+                scanf("%d", &legajo);
                 system("cls");
                 index=buscarAlumnoPorLegajo(listaDeAlumnos,A,legajo);
-                mostrarAlumno(listaDeAlumnos[index]);
-                system("pause");
-                system("cls");
+                if(index!=-1)
+                {
+                    mostrarAlumno(listaDeAlumnos[index]);
+                    system("pause");
+                }else
+                {
+                    printf("El legajo no existe.\n");
+                    system("pause");
+                }
                 break;
             case 5:
                 switch(borrarAlumno(listaDeAlumnos,A))
                 {
                 case 0:
-
                     printf("Se borro al alumno.\n");
-
+                    system("pause");
+                    break;
                 case 1:
-
                     printf("Accion cancelada\n");
-
+                    system("pause");
+                    break;
                 case -1:
-
                     printf("No se encontro el legajo indicado.\n");
+                    system("pause");
+                    break;
                 }
                 break;
             case 6:                                                     ///AGREGAR MODIFICACIONES.
                 break;
             default:
                 printf("Opcion incorrecta.\n");
+                system("pause");
             }
         }
         while (opcion!=6);
@@ -85,6 +94,7 @@ int main()
     else
     {
         printf("Error");
+
     }
 
     return 0;
